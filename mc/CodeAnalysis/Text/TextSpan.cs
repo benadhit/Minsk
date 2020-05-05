@@ -1,0 +1,24 @@
+namespace mc.CodeAnalysis.Text
+{
+    public class TextSpan
+    {
+        public TextSpan(int start,int length)
+        {
+            Start =start;
+            length = length;
+        }
+
+        public int Start {get;}
+        public int Length {get;}
+
+        public int End => Start+ Length;
+
+        public static TextSpan FromBounds(int start,int end)
+        {
+            var length = end -start;
+            return new TextSpan(start,length);
+        }
+
+        public override string ToString()=>$"{Start}..{End}"; 
+    }
+}
